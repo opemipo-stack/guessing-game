@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .contain {
+            display: flex;
+            flex-direction: column;
+            background-image: url(download.jfif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 100px;
+            padding-bottom: 20px;
+        }
+        #mainDiv {
+            width: 250px;
+            height: fit-content;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 2px 2px;
+            margin: auto;
+            padding: 10px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 30px;
+        }
+        #inputOne {
+            margin: auto;
+            margin-top: 30px;
+            width: 250px;
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 10px;
+            outline: none;
+        }
+        #btnOne {
+            width: fit-content;
+            margin: auto;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 10px; 
+            font-size: 20px;  
+        }
+        #btnTwo {
+            width: fit-content;
+            margin: auto;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 10px; 
+            font-size: 16px;  
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+    <div id="mainDiv">input a number below</div>
+    <input id="inputOne" type="text" placeholder="type a number here..." type="number">
+    <button id="btnOne" onclick="tryAgain()">guess</button>
+    <button id="btnTwo" onclick="refresh()">refresh page</button>
+</div>
+</body>
+</html>
+<script>
+   let divTag = document.getElementById('mainDiv') 
+   let inputTag = document.getElementById('inputOne') 
+   let btnTag = document.getElementById('btnOne')
+   let btnTagTwo = document.getElementById('btnTwo')
+   
+
+   function refresh() {
+    window.location.reload()
+   }
+   
+   function tryAgain() {
+    let userGuess = parseInt(inputTag.value)
+    let number = Math.floor(Math.random() * 11)
+    if (userGuess === number) {
+        divTag.innerHTML = 'correct guess!!!'
+    } else {
+        divTag.innerHTML = 'wrong, try again!'
+    }
+   }
+
+
+
+</script>
